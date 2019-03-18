@@ -117,3 +117,13 @@ video {
 	margin-top: 10%;
 	border: thin solid #949393;
 }
+
+
+.lightbox-close {
+	position: absolute;
+	color: white;
+	right: 12px;
+	top: 12px;
+	cursor: pointer;
+	font-size: 2em;
+}
