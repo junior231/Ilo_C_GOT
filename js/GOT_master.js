@@ -7,6 +7,7 @@
 		  lightBox = document.querySelector('.lightbox');
 		  video = document.querySelector('video');
 		  closeLB = document.querySelector('.lightbox-close');
+		  banners = document.querySelector('#houseImages');
 
 	function openLightbox() {
 		// grab the right video source
@@ -34,7 +35,19 @@
 		video.pause();
 	}
 
-	shields.forEach(sigil => sigil.addEventListener('click', openLightbox));
+	function animateBanner() {
+		const offSet = 600; //this is the offset / width of one image
+
+	    // this is the total distance the iamages need to move as a pixel value
+	    // dataset.offset is coming from eaxh shield we click on
+	    
+	    totalOffset = this.dataset.offset * offSet + "px";
+	    banners.style.right = totalOffset;
+	}
+	    
+
+	// shields.forEach(sigil => sigil.addEventListener('click', openLightbox));
+	 shields.forEach(sigil => sigil.addEventListener('click', animateBanner));
 
 	video.addEventListener('ended', closeLightbox);
 	closeLB.addEventListener('click', closeLightbox);
