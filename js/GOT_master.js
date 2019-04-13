@@ -31,12 +31,18 @@
 
 		console.log(houseData);
 
-	function openLightbox() {
+
+	// function animFooterText() {
+	// 	TweenMax.to('h1', 0.7, {scaleX: 2, scaleY: 2, ease:Elastic.easeOut});
+	// }
+
+	function openLightbox(beforeVideo) {
 		// grab the right video source
+		let targetHouse = beforeVideo.className.split(" ")[1];
 		
 
 		// get the lowercase house name from the class list
-		let targetHouse = this.className.split(" ")[1];
+		// let targetHouse = this.className.split(" ")[1];
 		// console.log(targetHouse);
 		
 		// make sure the names match - needs to be uppercase
@@ -82,6 +88,10 @@
 
 	  shields.forEach(sigil => sigil.addEventListener('click', openLightbox));
 	 shields.forEach(sigil => sigil.addEventListener('click', animateBanner));
+
+	 // make house name and text display before video shows up
+	 shields.forEach(shields => shields.addEventListener('click', () => {
+	 	setTimeout( () => {openLightbox(shields)}, 4000)}));
 
 	video.addEventListener('ended', closeLightbox);
 	closeLB.addEventListener('click', closeLightbox);
